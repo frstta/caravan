@@ -52,15 +52,19 @@
           </p>
             </div>
 
-              <div class="single_image"></div>
+              <div class="single_image">
+                <%= attachment_image_tag @blog, :blog_image %>
+              </div>
               <p class="single_text">
             <!-- 本文 -->
             <h1>本文</h1>
             <%= @blog.body %>
               </p>
 
-          <a href="#">編集</a>
-          <a href="#">削除</a>
+            <%= link_to "編集", edit_blog_path(@blog), method: :get %>
+              <!--link_toメソッドはデフォルトでHTTPメソッドがgetなので、定義しなくてもよい -->
+              <!-- form_forは、 -->
+            <%= link_to "削除", edit_blog_path(@blog), method: :delete %>
 
           <div class="author_case clearfix">
             <div class="author_image"></div>
